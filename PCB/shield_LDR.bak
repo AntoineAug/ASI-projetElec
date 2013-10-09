@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 28/09/2013 19:43:10
+EESchema Schematic File Version 2  date 28/09/2013 20:35:46
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -69,10 +69,10 @@ F 3 "~" H 7450 2900 30  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R?
+L R R2
 U 1 1 5247042D
 P 7450 3800
-F 0 "R?" V 7530 3800 40  0000 C CNN
+F 0 "R2" V 7530 3800 40  0000 C CNN
 F 1 "R" V 7457 3801 40  0000 C CNN
 F 2 "~" V 7380 3800 30  0000 C CNN
 F 3 "~" H 7450 3800 30  0000 C CNN
