@@ -1,0 +1,38 @@
+Cmp-Mod V01 Created by CvPcb (2013-04-19 BZR 4011)-stable date = 28/09/2013 20:49:22
+
+BeginCmp
+TimeStamp = /52470438;
+Reference = D1;
+ValeurCmp = LED;
+IdModule  = LED-8MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /52470C96;
+Reference = LDR1;
+ValeurCmp = PHOTORESISTANCE;
+IdModule  = Photoresistance;
+EndCmp
+
+BeginCmp
+TimeStamp = /52470416;
+Reference = R1;
+ValeurCmp = R;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /5247042D;
+Reference = R2;
+ValeurCmp = R;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /5247036F;
+Reference = SHIELD1;
+ValeurCmp = ARDUINO_SHIELD;
+IdModule  = ARDUINO_SHIELD;
+EndCmp
+
+EndListe
