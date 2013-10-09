@@ -1,0 +1,446 @@
+@import "compass/reset";
+@import "compass";
+@import "compass/css3/transform";
+
+/* ************* */
+/*   REPONSIVE   */
+@import "breakpoint";
+$breakpoint-default-feature: 'max-width';
+$mobile-max-width: 500px;
+
+
+/* ************* */
+/*    GÉNÉRAL    */
+$fontColor: #2D2D2D;
+$backgroundColor: #FAFAFA;
+$titleColor: darken(#7abcff, 30%);
+
+html, body
+{
+	width: 100%; height: 100%;
+	min-width: 100%; min-height: 100%;
+}
+body
+{
+	background-color: $backgroundColor;
+
+	font-size: 18px;
+	font-family: "Lucida Grande", Helvetica, Arial, sans-serif; 
+	color: $fontColor;
+
+	h1, h2, h3, h4, h5, h6
+	{
+		margin-bottom: 10px;
+		color: $titleColor;
+	}
+
+	h1
+	{
+		font-size: 3em;
+	}
+	h2
+	{
+		font-size: 2.5em;
+	}
+	h3
+	{
+		font-size: 1.7em;
+	}
+	h4
+	{
+		font-size: 1.5em;
+	}
+	.clear
+	{
+		display: block;
+		clear: both;
+	}
+	.success
+	{
+		margin: 10px 0;
+		color: #05af0d;
+		text-align: center;
+	}
+}
+
+/* ************* */
+/*    HEADER     */
+header
+{
+	width: 100%; height: 140px;
+	position: relative;
+	overflow: hidden;
+	border-bottom: 2px solid darken($backgroundColor, 30%);
+	
+	background-color: #7abcff;
+	@include filter-gradient(#7abcff, #4096ee, vertical);
+	@include background-image(linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%));
+
+	#sun
+	{
+		$sun-radius: 75px;
+		$sun-color: #ffff35;
+
+		display: block;
+		width: $sun-radius*2; height: $sun-radius*2;
+		position: relative;
+		margin: 50px auto 0 auto;
+		@include border-radius(100%);
+		
+		background-color: $sun-color;
+		@include filter-gradient($sun-color, darken($sun-color, 10%), horizontal);
+		@include background-image(radial-gradient(center, ellipse cover, $sun-color 0%, darken($sun-color, 20%) 100%));
+
+		#rays
+		{
+			display: block;
+			width: 0; height: 0;
+			position: absolute;
+			top: 50%; left: 50%;
+			
+			$ray-length: 30px;
+			.ray
+			{
+				display: block;
+				width: $ray-length; height: 3px;
+				background-color: $sun-color;
+				@include border-radius(100%);
+				position: absolute;
+			}
+			
+			/* Orientation et position de chaque rayon */
+			$n: 12;
+			$ratio: pi() * 2/$n;
+			@for $i from 1 through $n
+			{
+				#ray-#{$i}
+				{
+					$angle: $i*$ratio;
+					@include rotate(#{$angle}rad);
+					left: ($sun-radius + $ray-length) * cos($angle) - $ray-length/2;
+					top: ($sun-radius + $ray-length) * sin($angle);
+				}
+			}
+		}
+
+		/* Rotation des rayons au hover du header */
+		@include transition-property(all);
+		@include transition-duration(6s);
+	}
+
+	/* Rotation des rayons au hover du soleil */
+	&:hover
+	{
+		#sun
+		{
+			@include rotate(350deg);
+		}
+	}
+
+	/* Menu */
+	nav
+	{
+		position: absolute;
+		left: 20px;
+		bottom: 10px;
+		color: $fontColor + #111;
+
+		a, a:visited
+		{
+			color: $fontColor + #111;
+			text-decoration: none;
+
+			&:hover
+			{
+				color: $fontColor;
+			}
+		}
+	}
+
+	#earthEdge
+	{
+		display: none;
+	}
+}
+
+/* ************* */
+/*   CONTENT     */
+#contentWrapper
+{
+	min-height: 200px;
+	background-color: $backgroundColor;
+
+	#content
+	{
+		width: 90%; 
+		margin: 0 auto;
+
+		@include breakpoint($mobile-max-width)
+		{
+			width: 100%;
+		}
+	}
+}
+
+/* ************* */
+/*   FOOTER      */
+footer
+{
+	width: 100%; height: 100px;
+	background-color: $backgroundColor;
+}
+
+
+/* ************* */
+/*     HOME      */
+.home
+{
+	h1
+	{
+		font-size: 1.5em;
+		font-variant: italic;
+		margin-bottom: 20px;	
+	}
+	.module
+	{
+		padding: 20px 0;
+		text-align: center;
+	}
+
+	// Affichage d'un message au dessus de la date
+	#message
+	{
+		margin-bottom: 0;
+		font-size: 1.5em;
+	}
+
+	// Affichage de la date
+	#date
+	{
+		clear: both;
+		width: 100%;
+
+		.date
+		{
+			display: block;
+			font-size: 2em;
+			color: $titleColor;
+		}
+		#heure
+		{
+			display: block;
+			font-size: 5.6em;
+		}
+	}
+
+
+	// Affichage des horaires de métro
+	#horairesMetro
+	{
+		width: 50%;
+		float: left;
+
+		ul
+		{
+			li
+			{
+			}
+			
+			// Taille et opacité dégressive des horaires
+			$baseFontSize: 1.7em;
+			$baseColor: $fontColor;
+			$n: 10;
+			@for $i from 1 through $n
+			{
+				li:nth-child(#{$i}n)
+				{
+					font-size: $baseFontSize - ($baseFontSize / $n) * ($i - 1) * 2;
+					opacity: 1 - 2*($i - 1)/$n;
+				}
+			}
+		}
+	}
+
+	// Affichage de la météo
+	#meteo
+	{
+		.meteoContainer
+		{
+			margin: -15px auto 0 auto;
+			background: transparent !important;
+		}
+
+		.copy, .more 
+		{
+			display: none !important;
+		}
+
+		div
+		{
+			border: none !important;
+		}
+	}
+
+	// Affichage des news (widget reddit)
+	#news
+	{
+		max-width: 1000px;
+		margin: 0 auto;
+		a
+		{
+			color: black;
+			text-decoration: none;
+			&:hover
+			{
+				text-decoration: underline;
+			}
+		}
+
+		.reddit-link
+		{
+			margin: 10px 0;
+			padding: 10px 0;
+			border-bottom: 1px solid #444;
+			&:last-child
+			{
+				border: none;
+			}
+		}
+		
+		.reddit-title, .reddit-voting-arrows, small, .score, .reddit-comment-link
+		{
+			display: none;
+		}
+	}
+}
+
+
+/* ************* */
+/* CONFIGURATION */
+
+/* Formulaire de configuration du réveil : jours et heures */
+form
+{
+	line-height: 2em;
+	width: 90%;
+	margin: 0 auto;
+	padding-bottom: 10px; 
+
+	.bloc
+	{
+		width: 45%;
+		float: left;
+		margin: 10px 0 20px 0;
+		min-height: 100px;
+
+		&:nth-child(2n-1)
+		{
+			clear: both;
+			margin-right: 10%;
+		}
+		@include breakpoint($mobile-max-width)
+		{
+			width: 100%;
+			margin: 10px auto;
+			min-height: 0;
+		}
+
+		h3
+		{
+			width: 95%;
+			font-size: 1.3em;
+			text-align: center;
+			border-bottom: 1px solid darken($backgroundColor, 30%);
+		}
+	}
+
+	p
+	{
+		clear: both;
+		margin-bottom: 10px;
+	}
+	.day
+	{
+		clear: none;
+		float: left;
+		width: 150px;
+		height: 150px;
+		margin: 10px 10px;
+
+		@include breakpoint($mobile-max-width)
+		{
+			width: 48%;
+			height: auto;
+			text-align: center;
+			margin: 10px 0;
+			padding: 0;
+		}
+
+		&.inactive
+		{
+			opacity: 0.6;
+		}
+	}
+
+	label
+	{
+		&.dayName
+		{
+			display: block;
+			float: left;
+			color: black;
+			font-size: 22px;
+			@include breakpoint($mobile-max-width)
+			{
+				font-size: 18px;
+				margin-left: 5px;
+			}
+		}
+	}
+	input
+	{
+		&[type='checkbox']
+		{
+			width: 25px; height: 25px;
+			margin-top: 6px;
+			float: left; clear: none;
+			@include breakpoint($mobile-max-width)
+			{
+				width: 20px; height: 20px;
+			}
+		}
+		&[type='time']
+		{
+			width: 120px;
+			background-color: transparent;
+			border: none;
+			font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+			font-size: 20px;
+			@include breakpoint($mobile-max-width)
+			{
+				margin-left: 22px;
+			}
+		}
+		&[type='submit']
+		{
+			display: block;
+			margin: 0 auto;
+			font-size: 20px;
+		}
+	}
+	textarea
+	{
+		display: block;
+		width: 90%;
+		margin: 0 auto;
+		padding: 5px;
+	}
+	select
+	{
+		display: block;
+		width: 90%;
+		margin: 0 auto;
+		font-size: 16px;
+	}
+}
+

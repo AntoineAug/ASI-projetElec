@@ -1,0 +1,7 @@
+# REVEILS
+00 07 * * 0 /Users/Merlin/Code/RaspberryPi/P6/tmp/script.sh
+00 07 * * 1 /Users/Merlin/Code/RaspberryPi/P6/tmp/script.sh
+00 08 * * 2 /Users/Merlin/Code/RaspberryPi/P6/tmp/script.sh
+00 10 * * 3 /Users/Merlin/Code/RaspberryPi/P6/tmp/script.sh
+00 07 * * 4 /Users/Merlin/Code/RaspberryPi/P6/tmp/script.sh
+# /REVEILS

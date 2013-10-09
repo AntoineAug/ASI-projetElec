@@ -1,0 +1,11 @@
+\select@language {french}
+\contentsline {section}{Introduction}{1}
+\contentsline {section}{\numberline {1}Les diff\IeC {\'e}rents mod\IeC {\`e}les de Raspberry}{2}
+\contentsline {subsection}{\numberline {1.1}Qu'est-ce qu'un Raspberry ?}{2}
+\contentsline {subsection}{\numberline {1.2}Deux grands types de Raspberry Pi}{3}
+\contentsline {subsection}{\numberline {1.3}La carte Arduino}{3}
+\contentsline {section}{\numberline {2}Les diff\IeC {\'e}rents langages}{5}
+\contentsline {subsection}{\numberline {2.1}Les langages d\IeC {\'e}di\IeC {\'e}s \IeC {\`a} l'intelligence de notre application}{5}
+\contentsline {subsection}{\numberline {2.2}Les langages d\IeC {\'e}di\IeC {\'e}s \IeC {\`a} la cr\IeC {\'e}ation de l'IHM}{5}
+\contentsline {section}{\numberline {3}Les choix de la source de lumi\IeC {\`e}re}{7}
+\contentsline {section}{Conclusion}{8}
