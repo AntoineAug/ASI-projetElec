@@ -1,0 +1,41 @@
+\documentclass[a4paper, 12pt, french]{article}
+
+\usepackage[utf8]{inputenc} 	%package pour le français sous ubuntu : à vous d'adapter
+\usepackage[french]{babel}	%pour le français
+\usepackage[T1]{fontenc}	%pour les polices
+\usepackage{fullpage}
+\usepackage{array}
+
+\title{Calendrier previsionnel}
+\author{Antoine Augusti\\ Etienne Batise\\ Jean-Claude Bernard\\ Thibaud Dauce}
+
+\begin{document}
+	
+	\maketitle
+
+	\centering{
+	\begin{tabular}{| l | m{3.5cm} | m{3.5cm} | m{3.5cm} |}
+	
+	\hline
+	\textbf{Dates} & \textbf{Électronique} & \textbf{Arduino} & \textbf{RaspberryPi} \\ \hline
+	25/09/2013 & Determiner le travail à fournir & Prendre en main le logiciel Arduino & Découvrir l'interface RaspberryPi \\ \hline
+	
+	09/10/2013 & Remplacer le Shield Arduino par une carte PCB & Commencer le développement de la gestion de l'ampoule & \\ \hline
+	
+	23/10/2013 & 
+				\begin{itemize}
+				\item Ajouter une ampoule au montage
+				\item Trouver une solution pour une alimentation autonome
+				\end{itemize}	& Effectuer les tests de la gestion de l'ampoule & \\ \hline
+	
+	06/11/2013 & Implémentation de l'alimentation autonome & Développer un indicateur de la charge restante de la batterie & Commencer le développement du gestionnaire de métros \\ \hline
+	
+	20/11/2013 & Effectuer et vérifier tous les branchements définitevement & & Commencer le développement du gestionnaire de sons\\ \hline
+	
+	04/12/2013 & & & Commencer la gestion d'un affichage sur écran LCD \\ \hline
+	
+	18/12/2013 & \multicolumn{3}{c|}{Bricolage} \\ \hline	
+	
+	\end{tabular}
+	}
+\end{document}
