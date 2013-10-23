@@ -3,7 +3,7 @@
   int ldr = A5;
   int raspberryOut = 22;
   int raspberryIn = 23;
-  int lampe = 20;
+  int lampe = A4;
 
 // Le voltage s'exprime en valeurs analogiques 0-255
   int voltageMax = 255;
@@ -15,7 +15,7 @@
   int luminositePrecedente = 0;
 
 // Temps entre chaque exécution
-  float tempsEntreChaqueExecution = 0.3;
+  float tempsEntreChaqueExecution = 10;
   
 // Dernière hausse de la luminosité
   float derniereHausseLuminosite = 0;
@@ -30,6 +30,9 @@ void setup()
 	pinMode(ldr, INPUT);
         pinMode(raspberryIn, INPUT);
         pinMode(lampe, OUTPUT);
+        digitalWrite(led, HIGH);
+        analogWrite(lampe, 255);
+        delay(1000);
 }
 
 void loop()
@@ -37,13 +40,14 @@ void loop()
     int seuil = 20;
     // Si la luminosité dépasse cette valeur, le réveil ne peut plus s'arreter car la hausse ne peut plus etre supérieure au seuil 
     int luminositeMax = 255 - seuil;
-
+    
+    
     // Si on a pas fait de tests depuis "tempsEntreChaqueExecution"
     if (premiereExecution == 1 || millis() - derniereExecution > tempsEntreChaqueExecution)
     {
         // On lit les valeurs
         int luminosite = analogRead(ldr);
-        int raspberryIn = digitalRead(raspberryIn);          
+        int raspberryIn = 1;//digitalRead(raspberryIn);          
       
         // Si le réveil sonne et que le voltage n'est pas encore max
         if (raspberryIn && voltage < voltageMax)
