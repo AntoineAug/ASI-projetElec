@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 28/09/2013 20:35:46
+EESchema Schematic File Version 2  date mer. 09 oct. 2013 23:00:51 CEST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -29,16 +29,14 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:Shield_Arduino
-LIBS:capteurs
-LIBS:photoresistance
-EELAYER 27 0
+LIBS:shield_LDR-cache
+EELAYER 25  0
 EELAYER END
-$Descr A4 11693 8268
+$Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title "noname.sch"
-Date "28 sep 2013"
+Date "9 oct 2013"
 Rev ""
 Comp ""
 Comment1 ""
@@ -47,13 +45,11 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L ARDUINO_SHIELD SHIELD1
+L ARDUINO_SHIELD UNO
 U 1 1 5247036F
 P 4800 3600
-F 0 "SHIELD1" H 4450 4550 60  0000 C CNN
-F 1 "ARDUINO_SHIELD" H 4850 2650 60  0000 C CNN
-F 2 "" H 4800 3600 60  0000 C CNN
-F 3 "" H 4800 3600 60  0000 C CNN
+F 0 "UNO" H 4450 4550 60  0000 C CNN
+F 1 "ARDUINO" H 4850 2650 60  0000 C CNN
 	1    4800 3600
 	1    0    0    -1  
 $EndComp
