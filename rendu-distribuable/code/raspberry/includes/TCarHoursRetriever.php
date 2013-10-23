@@ -29,6 +29,19 @@ class TCarHoursRetriever
 		$this->limite = $limite;
 	}
 
+	public function getNomDirection($id)
+	{
+		switch ($id)
+		{
+			case 2:
+				return 'Boulingrin';
+				break;
+			case 1:
+				return 'Technopôle';
+				break;
+		}
+	}
+
 	// Choix de la direction
 	// 'technopole' ou 'boulingrin'
 	public function setDirection($direction)
@@ -88,8 +101,8 @@ class TCarHoursRetriever
 		$requestString .= "&lign_id=". $ligne;
 		$requestString .= "&sens=". $sens;
 		$requestString .= "&stopPoint=". $station;
-		
-		return $requestString;
+
+      		return $requestString;
 	}
 
 
@@ -145,6 +158,10 @@ class TCarHoursRetriever
 				if(preg_match("/\d\d:\d\d/", $value))
 				{
 					array_push($hours, $value);
+				}
+				elseif ($value != $this->getNomDirection($this->sens))
+				{
+					array_pop($hours);
 				}
 			}
 		}
