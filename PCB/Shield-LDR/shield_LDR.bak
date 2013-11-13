@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 28/09/2013 20:35:46
+EESchema Schematic File Version 2  date 29/10/2013 15:11:40
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -29,16 +29,15 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:Shield_Arduino
-LIBS:capteurs
 LIBS:photoresistance
+LIBS:shield_LDR-cache
 EELAYER 27 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "noname.sch"
-Date "28 sep 2013"
+Date "29 oct 2013"
 Rev ""
 Comp ""
 Comment1 ""
@@ -141,4 +140,37 @@ Wire Wire Line
 Wire Wire Line
 	8000 5150 8000 2900
 Connection ~ 8000 2900
+$Comp
+L R R3
+U 1 1 526FBB3A
+P 6700 5500
+F 0 "R3" V 6780 5500 40  0000 C CNN
+F 1 "R" V 6707 5501 40  0000 C CNN
+F 2 "~" V 6630 5500 30  0000 C CNN
+F 3 "~" H 6700 5500 30  0000 C CNN
+	1    6700 5500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L LED D2
+U 1 1 526FBB51
+P 7700 5500
+F 0 "D2" H 7700 5600 50  0000 C CNN
+F 1 "LED" H 7700 5400 50  0000 C CNN
+F 2 "~" H 7700 5500 60  0000 C CNN
+F 3 "~" H 7700 5500 60  0000 C CNN
+	1    7700 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 3400 6450 3400
+Wire Wire Line
+	6450 3400 6450 5500
+Wire Wire Line
+	6950 5500 7500 5500
+Wire Wire Line
+	7900 5500 8350 5500
+Wire Wire Line
+	8350 5500 8350 4700
+Connection ~ 8350 4700
 $EndSCHEMATC

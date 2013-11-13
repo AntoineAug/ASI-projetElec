@@ -1,0 +1,19 @@
+EESchema-LIBRARY Version 2.3  Date: 09/11/2013 22:25:19
+#encoding utf-8
+#
+# 7805
+#
+DEF 7805 Reg 0 40 Y Y 1 F P
+F0 "Reg" 0 200 60 H V C CNN
+F1 "7805" 0 300 60 H V C CNN
+F2 "~" 0 0 60 H V C CNN
+F3 "~" 0 0 60 H V C CNN
+DRAW
+S 100 -50 -100 50 0 1 0 N
+X ~ 1 -400 0 300 R 50 50 1 1 I
+X ~ 2 400 0 300 L 50 50 1 1 O
+X ~ 3 0 -350 300 U 50 50 1 1 w
+ENDDRAW
+ENDDEF
+#
+#End Library

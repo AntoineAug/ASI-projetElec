@@ -13,7 +13,7 @@
   int premiereExecution = 1;
   long derniereExecution = 0; 
   int luminositePrecedente = 0;
-
+  
 // Temps entre chaque exécution en ms
   float tempsEntreChaqueExecution = 500;
   
@@ -30,6 +30,9 @@ void setup()
 	pinMode(ldr, INPUT);
         pinMode(raspberryIn, INPUT);
         pinMode(lampe, OUTPUT);
+        digitalWrite(led, HIGH);
+        analogWrite(lampe, 255);
+        delay(1000);
 }
 
 void loop()
@@ -37,7 +40,8 @@ void loop()
     int seuil = 20;
     // Si la luminosité dépasse cette valeur, le réveil ne peut plus s'arreter car la hausse ne peut plus etre supérieure au seuil 
     int luminositeMax = 255 - seuil;
-
+    
+    
     // Si on a pas fait de tests depuis "tempsEntreChaqueExecution"
     if (premiereExecution == 1 || millis() - derniereExecution > tempsEntreChaqueExecution)
     {      
