@@ -3,7 +3,7 @@
   int ldr = A5;
   int raspberryOut = 22;
   int raspberryIn = 23;
-  int lampe = A4;
+  int lampe = 9;
 
 // Le voltage s'exprime en valeurs analogiques 0-255
   int voltageMax = 255;
@@ -13,15 +13,15 @@
   int premiereExecution = 1;
   long derniereExecution = 0; 
   int luminositePrecedente = 0;
-
-// Temps entre chaque exécution
-  float tempsEntreChaqueExecution = 10;
+  
+// Temps entre chaque exécution en ms
+  float tempsEntreChaqueExecution = 500;
   
 // Dernière hausse de la luminosité
   float derniereHausseLuminosite = 0;
 
 // Temps d'allumage de l'ampoule en nombre de tours
-  int nombreToursAllumage = 10;
+  int nombreToursAllumage = 50;
 
 void setup()
 {
@@ -44,13 +44,14 @@ void loop()
     
     // Si on a pas fait de tests depuis "tempsEntreChaqueExecution"
     if (premiereExecution == 1 || millis() - derniereExecution > tempsEntreChaqueExecution)
-    {
+    {      
         // On lit les valeurs
         int luminosite = analogRead(ldr);
-        int raspberryIn = 1;//digitalRead(raspberryIn);          
-      
+        int alarm = digitalRead(raspberryIn);          
+        alarm = HIGH;
+
         // Si le réveil sonne et que le voltage n'est pas encore max
-        if (raspberryIn && voltage < voltageMax)
+        if (alarm && voltage < voltageMax)
         {
             // On allume l'ampoule un peu plus
             voltage = voltage + 255 / nombreToursAllumage;
