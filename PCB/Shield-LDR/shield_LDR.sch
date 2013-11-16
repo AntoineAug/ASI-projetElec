@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 29/10/2013 15:11:44
+EESchema Schematic File Version 2  date 15/11/2013 21:16:23
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -37,7 +37,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "noname.sch"
-Date "29 oct 2013"
+Date "15 nov 2013"
 Rev ""
 Comp ""
 Comment1 ""
@@ -163,14 +163,16 @@ F 3 "~" H 7700 5500 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5750 3400 6450 3400
-Wire Wire Line
-	6450 3400 6450 5500
-Wire Wire Line
 	6950 5500 7500 5500
 Wire Wire Line
 	7900 5500 8350 5500
 Wire Wire Line
 	8350 5500 8350 4700
 Connection ~ 8350 4700
+Wire Wire Line
+	3850 4000 3500 4000
+Wire Wire Line
+	3500 4000 3500 5500
+Wire Wire Line
+	3500 5500 6450 5500
 $EndSCHEMATC
