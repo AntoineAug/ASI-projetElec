@@ -8,3 +8,8 @@
 	Malheureusement l'utilisation du proxy de l'INSA est incompatible avec l'utilisation d'un serveur local simultanément. Pour pouvoir utiliser ces deux services simultanément nous avions besoin de spécifier des règles de proxy spécifiques et supplémentaires par rapport à ce que le proxy de l'INSA propose naturellement. Une fois la solution trouvée, nous avons alors créé un fichier de configuration pour le proxy répondant à notre besoin.\\
 
 	Enfin, le navigateur web proposé par défaut sur Raspberry n'étant pas capable de lire ce type de fichier de configuration, nous avons téléchargé le navigateur web Chromium.
+
+\section{Gestionnaire de sons}
+	Pour être efficace, notre réveil devait jouer un son pour réveiller la personne ayant programmé l'alarme. L'alarme avait été préalablement conçue pour que le son joué pour réveiller soit toujours le même.\\
+
+	Nous avons voulu améliorer ceci en jouant un son aléatoire pour réveiller la personne. Nous avons réalisé cette fonctionnalité à l'aide d'un script Bash qui joue aléatoirement un des fichiers de musique se trouvant dans un répertoire spécifique.
