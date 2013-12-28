@@ -1,0 +1,10 @@
+\section{Réseau}
+	Le principal problème que nous avons rencontré était au niveau de la gestion des contraintes réseau : nous avions besoin d'utiliser le serveur local du Raspberry pour proposer l'interface web de configuration du réveil et un accès au web complet pour proposer des services extérieurs : les prochains métros, la météo et les news.\\
+
+	Pour nous connecter au web nous avions à notre disposition dans les salles de TP le réseau de l'INSA qui oblige à passer par le proxy\footnote{En informatique, un proxy est un composant logiciel qui joue le rôle d'intermédiaire en se plaçant entre deux autres pour faciliter ou surveiller leurs échanges.
+
+	Dans le cadre plus précis des réseaux informatiques, un proxy est alors un programme servant d'intermédiaire pour accéder à un autre réseau, généralement internet. Par extension, on appelle aussi proxy un matériel (un serveur par exemple) mis en place pour assurer le fonctionnement de tels services.} de l'INSA pour atteindre le web.\\
+
+	Malheureusement l'utilisation du proxy de l'INSA est incompatible avec l'utilisation d'un serveur local simultanément. Pour pouvoir utiliser ces deux services simultanément nous avions besoin de spécifier des règles de proxy spécifiques et supplémentaires par rapport à ce que le proxy de l'INSA propose naturellement. Une fois la solution trouvée, nous avons alors créé un fichier de configuration pour le proxy répondant à notre besoin.\\
+
+	Enfin, le navigateur web proposé par défaut sur Raspberry n'étant pas capable de lire ce type de fichier de configuration, nous avons téléchargé le navigateur web Chromium.
