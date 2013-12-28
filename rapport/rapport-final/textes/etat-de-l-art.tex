@@ -1,0 +1,102 @@
+\section*{Introduction} % (fold)
+\label{sec:introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Dans le cadre de notre première année de cycle ingénieur dans le département ASI\footnote{ASI : Architecture des Système d'Information}, nous avons pour mission de réaliser pour le cours d'Électronique pour l'ingénieur dispensé par Monsieur \bsc{Henriet} un projet d'une durée de 6 mois en rapport avec le domaine de l'électronique. Une partie de notre groupe ayant réalisé un robot auparavant dans le cadre du projet de P6, nous avons choisis de découvrir ensemble de nouvelles technologies de façon à agrandir notre vision dans ce domaine.\\
+
+Notre attention s'est très rapidement portée sur l'un des projet déjà réalisé par un groupe d'étudiant l'année dernière : \emph{Un réveil intelligent}. En effet, ce projet est véritablement dans la vague des nouvelles technologies domotiques qui deviennent de plus en plus populaires. C'est pourquoi nous nous sommes fixés comme but d'améliorer ce projet par de nouvelles fonctionnalités. \\
+
+Malgré la réussite de ce projet, il est néanmoins indispensable d'effectuer pour nous un état de l'art sur les différents caractéristiques actuelles du projet d'une part, et de nos projets d'autres part. C'est pourquoi dans ce dossier nous allons d'abord vous parler des différents modèles de carte à programmer telles que les Arduino ou les Raspberry Pi. Ensuite nous présenterons les différents langages de programmation à utiliser et leur utilité. Enfin nous expliquerons quels nouveaux types de matériel nous allons utiliser pour arriver à notre but.\\
+
+% section introduction (end)
+\section{Les différents modèles de Raspberry} % (fold)
+\label{sec:les_diff_rents_mod_les_de_raspberry}
+
+\subsection{Qu'est-ce qu'un Raspberry ?} % (fold)
+\label{sub:qu_est_qu_un_raspberry}
+Un Raspberry, ou pour son nom complet un Raspberry Pi, est une mini-ordinateur, de la taille d'une carte de crédit, tournant avec un processeur ARM. Un processeur ARM est du même type que ceux que l'on trouve dans nos tablettes ou smartphone, leur principale caractéristique est leur faible consommation d'énergie. Le Raspberry Pi est composé uniquement d'une carte mère sans boitier, sans alimentation ni stockage mais il possède un grand nombre d'entrées sorties dites standards. Les plus importantes sont : un lecteur de carte SD (pour le stockage), un prise HDMI (afin de le connecter à un écran), un ou des ports USB (afin en particulier de pouvoir y brancher un clavier et / ou une souris mais aussi des clés USB ou d'autres périphériques USB tel que un dongle Wi-Fi). \\
+
+\begin{figure}[h]
+  	\centering
+  	\includegraphics[scale= 0.6]{images/RaspberryPi.jpg}
+  	\caption{Raspberry Pi}
+\end{figure}
+
+Le principal problème de ce mini-ordinateur est qu'il est alimenté en USB (5 Volts) ce qui explique le choix d'un processeur ARM, peu gourmant en énergie certe, mais peu puissant en contrepartie. Cette faible alimentation est aussi un problème concernant les périphériques USB. Par exemple, un clavier rétro-éclairé peut consommer trop d'énergie et rendre le Raspberry Pi défaillant. \\
+
+Toutefois le Raspberry Pi possède de nombreux avantages. En premier lieu, il est capable de faire tourner un système d'exploitation de type GNU / Linux très puissant et permettant d'effectuer des tâches très variées. Il est en effet possible d'installer sur un Raspberry Pi un serveur web (de type Apache), un serveur mail, un système de partage de fichier (type Samba) ou encore une seedbox (afin de partager des fichiers torrent). Là où l'alimentation était un problème, sa faible consommation devient un avantage si il reste allumé 24h / 24 7j / 7. Ce mini-ordinateur se distingue aussi par ses incroyables capacités graphique car malgré un processeur peu puissant, il arrive a décoder des vidéos full HD (1080p) sans aucun problème. Il est souvent utilisé comme \textit{media center}, branché à une télévision et au réseau, permettant ainsi de regarder des films stockés sur son ordinateur facilement. \\
+
+Pour finir, le prix du Raspberry d'environ 30 euros le rend très attractif aux vues de ses capacités très vastes. Il peut être intégré dans de nombreux projets de robotique allant du ballon sonde à un serveur de domotique.\\
+% subsection qu_est_qu_un_raspberry (end)
+
+\subsection{Deux grands types de Raspberry Pi} % (fold)
+\label{sub:deux_grands_types_de_raspberry_pi}
+Il existe deux types de Raspberry Pi : le modèle A et le modèle B. Le modèle B se distingue de son homologue moins cher sur plusieurs points : une RAM plus importante (512 Mo au lieu de 256 Mo), un port USB supplémentaire, un port Ethernet 10/100 et une meilleure puissance électrique (700mA au lieu de 400mA). \\
+
+Pour notre projet, nous n'avons pas le choix du Raspberry Pi car nous allons reprendre celui utilisé pour le projet de P6 du "Réveil intelligent". C'est un modèle B muni donc d'un port Ethernet mais malheureusement plus vieux que l'actuelle version donc n'aillant quand même que 256 Mo de RAM. Si nous avions dû choisir, c'est ce modèle plus performant que nous aurions prit en grande partie pour son port Ethernet permettant des applications réseau mais aussi pour ses meilleures performances d'alimentation qui pourront nous être utile dans le futur.\\
+
+Nous tenons à lever un problème du Raspberry Pi modèle B, les deux ports USB et le port Ethernet sont reliés au même composant "LAN9512" qui est lui-même connecté au CPU via un port USB2 : les débits sont donc divisés entre les trois éléments. Dans notre cas, ce n'est pas un problème car nous ne comptons pas effectuer des transferts importants de données en USB ou en réseau.\\ 
+% subsection deux_grands_types_de_raspberry_pi (end)
+
+\subsection{La carte Arduino} % (fold)
+\label{sub:la_carte_arduino}
+Arduino est un circuit imprimé possédant un microcontrôleur lui permettant d'analyser des signaux électriques. Ce composant est déjà présent dans le projet que nous comptons reprendre et nous pouvons donc le réutiliser. \\
+
+\begin{figure}
+  	\centering
+  	\includegraphics[scale= 0.6]{images/Arduino.jpg}
+  	\caption{Carte Arduino}
+\end{figure}
+
+Contrairement à un Raspberry Pi, la carte Arduino possède un grand nombre d'entrées / sorties (une vingtaine alors que le Raspberry Pi en possède uniquement 6) mais ne peut pas exécuter de système d'exploitation et donc de programme en temps que tel. Le microcontrôleur peut quand même effectuer des calculs qui seront développés en C / C++. Le dernier point intéressant sur la Arduino est de pouvoir recevoir des signaux analogiques alors que le Raspeberry Pi ne peut lire que des signaux numériques, il aura donc en charge de transformer les signaux analogiques des capteurs (luminosité par exemple) en numérique (0 ou 1 en fonction d'un seuil). \\
+% subsection la_carte_arduino (end)
+
+% section les_diff_rents_mod_les_de_raspberry (end)
+\section{Les différents langages} % (fold)
+\label{sec:les_diff_rents_langages}
+Nous allons être amenés à utiliser plusieurs langages de programmation bien différents les uns des autres pour pouvoir réaliser ce projet. La séparation la plus marquée pour ces langages peut se faire par leur but : une partie des langages sera utilisée pour l'intelligence de nos applications, tandis que les autres langages seront dédiés à la création d'une IHM\footnote{IHM : Interface Homme Machine}.
+
+\subsection{Les langages dédiés à l'intelligence de notre application}
+La logique métier et les différentes fonctions de notre application seront écrites en PHP\footnote{PHP : \textit{PHP Hypertext Preprocessor}.} et en script shell.\\
+
+PHP est un langage de programmation compilé à la volée libre principalement utilisé pour produire des pages Web dynamiques via un serveur HTTP, mais pouvant également fonctionner comme n'importe quel langage interprété de façon locale. Le langage PHP permettra de programmer les différentes fonctions de notre application ainsi que de stocker et d'aller chercher les données utiles à son fonctionnement.\\
+
+Les scripts shell (également appelés scripts bashs) permettent d'automatiser une série de commandes exécutées dans un terminal. Un script shell se présente sous la forme d'un fichier contenant une ou plusieurs commandes qui seront exécutées de manière séquentielle. Ces scripts nous permettront d'automatiser des opérations de maintenance, de mises à jour ou de modifications de notre Raspberry.
+
+\subsection{Les langages dédiés à la création de l'IHM}
+L'Interface Homme Machine de notre application sera accessible depuis un navigateur web (Firefox ou Google Chrome par exemple). Pour pouvoir proposer une IHM accessible depuis un navigateur web, il est obligatoire d'utiliser les langages associés au monde du web à savoir HTML\footnote{HTML : \textit{Hypertext Markup Language}.} et CSS\footnote{CSS : \textit{Cascading Style Sheets}}. Nous utiliserons également du JavaScript pour pouvoir proposer une interface plus dynamique.\\
+
+Le HTML est le format de données conçu pour représenter les pages web. C'est un langage de balisages qui permet d'indiquer qu'un élément est un titre, un paragraphe, un lien, une liste, un élément d'une liste etc.\\
+
+Le feuilles de style CSS, quand elles sont associées à du HTML, permettent de mettre en forme une page web en spécifiant comment sont positionnés les éléments, quelles couleurs il faut utiliser, quels sont les tailles et espaces à respecter. Le CSS définit l'aspect graphique de la page web tandis que le HTLM ne s'occupe que de la sémantique du contenu de celle-ci.\\
+
+Le JavaScript (souvent abrégé JS) est un langage de programmation de scripts principalement utilisé dans les pages web interactives mais aussi côté serveur. Il permet de modifier des pages web quand un événement est déclenché (le survol d'un élément, un délai dépassé, une position atteinte etc.) sans devoir rafraîchir celle-ci, donnant la possibilité d'avoir des modifications instantannées à l'écran dès qu'une action de la part de l'utilisateur est effectuée. Le JavaScript est capable de modifier du CSS et du HTML.
+
+% section les_diff_rents_langages (end)
+
+
+
+\section{Les choix de la source de lumière} % (fold)
+\label{sec:les_choix_de_la_source_de_lumi_re}
+	
+% \subsection{Le choix de l'ampoule}
+	
+On trouve trois grandes familles d'ampoules : les lampes à incandescences, les sources à décharge luminescentes pressurisées et les sources électroluminescentes.
+	
+\begin{wrapfigure}{r}{25mm}
+  	\centering
+  	\includegraphics[scale= 0.2]{images/incandescence.jpg}
+  	\caption{Ampoule à incandescence}
+\end{wrapfigure}
+	
+La lampe à incandescence classique, inventée en 1879 par Joseph Swan et améliorée par les travaux de Thomas Edison, ou à halogène, inventée en 1959, produit de la lumière en portant à incandescence un filament de carbone (à l'origine) ou de tungstène.\\
+	
+Ensuite, on a les sources à décharge luminescentes pressurisées telles que les lampes fluorescentes compactes. Celles-ci produisent de la lumière grâce à un mélange de gaz et/ou de vapeur excité par une décharge électrique. Contrairement aux lampes à incandescences, on a une plus grande luminosité (jusqu'à 115 lumens par watt) et le coût est similaire. Toutefois l'allumage n'est pas instantané.\\
+		
+Enfin, les lampes électroluminescentes sont constituées d'un matériau semi-conducteur traversé par un courant électrique et émettent une couleur bleue. Par des procédés chimiques, on va pouvoir convertir la lumière en jaune. Ces types de lampes ont la plus grande longévité et chauffent beaucoup moins que les lampes à incandescences. Néanmoins, ce sont les ampoules les plus chères du marché actuellement. \\
+
+\section*{Conclusion} % (fold)
+\label{sec:conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+	Après avoir établi un état de l'art des différents outils et technologies que nous allons utiliser, nous avons donc de bonnes bases pour commencer à nous organiser et nous lancer réellement dans la conception globale du projet.
+% section conclusion (end)

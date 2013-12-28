@@ -1,116 +1,89 @@
-\documentclass[a4paper, 12pt, french]{article}
+\documentclass[12pt,titlepage,a4paper]{report}
 
-\usepackage[utf8]{inputenc} 	%package pour le français sous ubuntu : à vous d'adapter
-\usepackage[french]{babel}	%pour le français
-\usepackage[T1]{fontenc}	%pour les polices
-\usepackage[babel=true]{csquotes}
+% Texte
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{array}
 
-\title{Un réveil intelligent}
-\author{
-	Antoine \bsc{Augusti}\\
-	Etienne \bsc{Batise}\\
-	Jean Claude \bsc{Bernard}\\
-	Thibaud \bsc{Dauce}\\}
-\date{}
+% Numéroter les chapitres a partir de chaque début de partie
+\makeatletter\@addtoreset{chapter}{part}\makeatother
+
+% Mise en page
+\usepackage{url}
+\usepackage[top=2.1cm,bottom=2cm,left=1cm,right=1cm]{geometry}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+}
+\usepackage{multirow}
+
+% TOC
+\usepackage[french]{minitoc}
+\setcounter{tocdepth}{0}
+\setcounter{minitocdepth}{2}
+\setlength{\mtcindent}{0pt}
+
+% Images
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+% Pour inclure des pages PDF
+\usepackage[final]{pdfpages}
+
+% Couverture
+\usepackage{templateINSA}
+\initINSA
+
+\title{Projet d'électronique}
+\author{Antoine \bsc{Augusti}\\ Etienne \bsc{Batise}\\ Jean-Claude \bsc{Bernard}\\ Thibaud \bsc{Dauce}}
+
+\renewcommand\soustitre{Un réveil intelligent}
+\renewcommand\infoBig{Projet d'électronique}
+\renewcommand\infoSmall{ASI3 2013-2014}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
 
 \begin{document}
+	\titleINSA{15}{images/fond.jpg}{0}{0}{300}{\href{http://www.flickr.com/photos/lord_james/4696338852/sizes/o/in/photostream/}{\textcolor{white}{Licence CC - Lord James}}}
 
-\maketitle
-\thispagestyle{empty}
-\pagebreak
+	\dominitoc
+	\tableofcontents
 
-\tableofcontents
-\thispagestyle{empty}
-\pagebreak
+	\setcounter{page}{1}
+	\part{TODO}
+	un couverture explicite : photo, noms des élèves et du prof, classe année titre projet
 
-\setcounter{page}{1}
-\section*{TODO} % (fold)
-\label{sec:todo}
-\addcontentsline{toc}{section}{TODO}
-un couverture explicite : photo, noms des élèves et du prof, classe année titre projet
+	un CD-Rom contenant les fichier pdf du dossier complet, le cahier de suivi, les photos, les vidéos, les liens internet, le bon de commande
 
-un CD-Rom contenant les fichier pdf du dossier complet, le cahier de suivi, les photos, les vidéos, les liens internet, le bon de commande
+	\part{Introduction}
+	\chapter{État de l'art}
+	\minitoc
+	\input{textes/etat-de-l-art.tex}
 
-% section todo (end)
+	\part{Cahier des charges}
+	\chapter{Cahier des charges}
+	\input{textes/cahier-des-charges.tex}
 
+	\part{Étude technique}
 
+	\part{Documents de réalisation}
 
-\pagebreak
-\section*{Introduction (Présentationdu sujet)} % (fold)
-\label{sec:introduction}
-\addcontentsline{toc}{section}{Introduction}
+	\chapter{Calendrier prévisionnel}
+	\input{textes/calendrier-previsionnel.tex}
+	\chapter{Cahier de suivi}
+	\minitoc
+	\input{textes/cahier-de-suivi.tex}
 
-% section introduction (end)
+	\part{Étude logicielle}
 
+	\part{Estimation du coût total}
 
+	\part{Bilan et Conclusion}
 
-\pagebreak
-\section{État de l'art} % (fold)
-\label{sec:_tat_de_l_art}
-	documents de quelques pages portant sur l'état d'avancement de la science et de la technique sur le sujet concerné et sur des produits équivalents ou plus évolués. Pour des produits non existants, faire un dossier de recherche sur les composants imposés ou utilisables et leur mise en oeuvre.
-
-	TODO : inclure l'état de l'art écris dans un rapport annexe
-
-% section _tat_de_l_art (end)
-
-
-
-\pagebreak
-\section{Cahier des charges} % (fold)
-\label{sec:cahier_des_charges}
-	doucemn exprimant le travail à réaliser de manière détaillée
-
-% section cahier_des_charges (end)
-
-
-
-\pagebreak
-\section{Étude technique} % (fold)
-\label{sec:_tude_technique}
-	(éléctronique, mécanique (schémas, plans calculs, vue 3D))
-
-% section _tude_technique (end)
-
-
-
-\pagebreak
-\section{Documents de réalisation} % (fold)
-\label{sec:documents_de_r_alisation}
-(typons, plans, nomenclature)
-
-% section documents_de_r_alisation (end)
-
-
-
-\pagebreak
-\section{Étude logicielle} % (fold)
-\label{sec:_tude_logicielle}
-
-% section _tude_logicielle (end)
-
-
-
-\pagebreak
-\section{Estimation du coût total} % (fold)
-\label{sec:estimation_du_co_t_total}
-
-% section estimation_du_co_t_total (end)
-
-
-
-\pagebreak
-\section*{Bilan et Conclusion} % (fold)
-\label{sec:bilan_et_conclusion}
-\addcontentsline{toc}{section}{Conclusion}
-
-% section bilan_et_conclusion (end)
-
-
-\pagebreak
-\section*{Annexes} % (fold)
-\label{sec:annexxes}
-\addcontentsline{toc}{section}{Annexes}
-
-% section annexxes (end)
+	\part{Annexes}
 
 \end{document}
