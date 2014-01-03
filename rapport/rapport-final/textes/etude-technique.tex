@@ -28,4 +28,5 @@
 	Nos camarades de l'année dernière alimentaient leurs Arduino et Raspberry avec une prise secteur. Cette année, on a décidé d'en faire un réveil portable. Et qui dit portable, dit alimentation autonome. Les deux appareils étant alimentés en 5V, on a commandé un régulateur de tension 7805 qui délivre du 5V/1A. On met donc en entré du régulateur un pack d'accus de 7V et le régulateur va se charger de délivrer du 5V à l'arduino et à la raspberry branchées en dérivation sur celui-ci.
 
 \section{Communication Arduino-Raspberry}
-%Thibaud
+	Comme la Arduino reçoit les informations du capteur de luminosité et allume la lampe, et que le Raspberry est en charge du réveil, il a fallu établir une communication entre les deux cartes. Pour cela nous utilisons deux pins du Raspberry et deux pins du la Arduino afin de pouvoir envoyer et recevoir des informations grâce à une liaison bi-directionnelle. \\
+	D'un côté, le Raspberry va envoyer un signal de réveil à la Arduino afin qu'elle puisse commencer à allumer la LED. Et inversement, lorsque que la Arduino détecte une source de lumière, elle envoie un signal au Raspberry afin qu'il puisse éteindre la sonnerie du réveil.
