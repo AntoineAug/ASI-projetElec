@@ -1,9 +1,9 @@
 // Numéro des pins utilisés
-  int led = 13;
+  int led = A1;
   int ldr = A5;
-  int raspberryOut = 22;
-  int raspberryIn = 23;
-  int lampe = 9;
+  int raspberryOut = 23;
+  int raspberryIn = 22;
+  int lampe = 13;
 
 // Le voltage s'exprime en valeurs analogiques 0-255
   int voltageMax = 255;
@@ -21,7 +21,9 @@
   float derniereHausseLuminosite = 0;
 
 // Temps d'allumage de l'ampoule en nombre de tours
-  int nombreToursAllumage = 50;
+  int nombreToursAllumage = 20;
+
+  int alarm = LOW;
 
 void setup()
 {
@@ -30,53 +32,40 @@ void setup()
 	pinMode(ldr, INPUT);
         pinMode(raspberryIn, INPUT);
         pinMode(lampe, OUTPUT);
-        digitalWrite(led, HIGH);
-        analogWrite(lampe, 255);
-        delay(1000);
 }
 
 void loop()
 {
-    int seuil = 20;
-    // Si la luminosité dépasse cette valeur, le réveil ne peut plus s'arreter car la hausse ne peut plus etre supérieure au seuil 
-    int luminositeMax = 255 - seuil;
     
+    int seuil = 200;
     
-    // Si on a pas fait de tests depuis "tempsEntreChaqueExecution"
+    // Si on n'a pas fait de tests depuis "tempsEntreChaqueExecution"
     if (premiereExecution == 1 || millis() - derniereExecution > tempsEntreChaqueExecution)
     {      
         // On lit les valeurs
         int luminosite = analogRead(ldr);
-        int alarm = digitalRead(raspberryIn);          
-        alarm = HIGH;
-
+        int alarm = digitalRead(raspberryIn);
+       
         // Si le réveil sonne et que le voltage n'est pas encore max
-        if (alarm && voltage < voltageMax)
-        {
+        if (alarm == HIGH && voltage < voltageMax)
+        {          
             // On allume l'ampoule un peu plus
             voltage = voltage + 255 / nombreToursAllumage;
             analogWrite(lampe, voltage);
         }
 
-        // Si l'utilisateur allume la lumière (forte hausse de la luminosité) ou si la pièce est déjà très éclairée (luminosite > luminositeMax)
-        if (luminosite - luminositePrecedente > seuil || luminosite > luminositeMax)
+        // Si l'utilisateur allume la lumière
+        if (luminosite < seuil)
         {
             // On envoie le signal d'extinction du réveil
-            digitalWrite(raspberryOut, HIGH);
-            
-            // On enregistre l'heure de la dernière hausse de luminosité
-            derniereHausseLuminosite = millis();
+            digitalWrite(raspberryOut, 1);
+            analogWrite(lampe, 0);
+            voltage = 0;
         }
-        
-        // Si la hausse de luminosité est survenue il y a plus de 3s on arrete d'envoyer le signal d'extinction
-        if (premiereExecution == 1 || millis() - derniereHausseLuminosite > 3000)
+        else
         {
-            // État par défaut du réveil (la pièce est noire)
             digitalWrite(raspberryOut, LOW);
         }
-
-        // On se souvient de la dernière luminosité
-        luminositePrecedente = luminosite;
 
         // On enregistre l'heure de la dernière exécution
         derniereExecution = millis();
