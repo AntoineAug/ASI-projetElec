@@ -15,10 +15,7 @@
   int luminositePrecedente = 0;
   
 // Temps entre chaque exécution en ms
-  float tempsEntreChaqueExecution = 500;
-  
-// Dernière hausse de la luminosité
-  float derniereHausseLuminosite = 0;
+  float tempsEntreChaqueExecution = 500;Z
 
 // Temps d'allumage de l'ampoule en nombre de tours
   int nombreToursAllumage = 20;
