@@ -1,0 +1,38 @@
+# Cahier des Charges
+
+## Important
+
+- Jouer de la musique à l'heure programmée
+- Configuration des horaires du réveil via interface web hébergée sur la raspi (accessible en local, mobile, desktop, etc...)
+- Les morceaux à jouer sont choisis dans un dossier de la raspi
+- arrêt du réveil ne appuyant sur une touche
+- 
+## Secondaire
+
+- Afficher des infos utiles
+-- Heure et date [done]
+-- Météo [todo: configuration]
+-- Heure du tram [todo: configuration]
+-- Messages divers
+-- News
+
+- Synthèse vocale
+-- Informations
+-- Messages motivants
+
+- Choix "avancé" de la musique (selon le jour, etc...)
+- allumage progressif de la lumière (simulé par LED)
+
+## Complètement optionnel
+
+- Composante sociale
+-- "appeler" les réveils des amis une fois que l'on est réveillé (via simple POST HTTP)
+-> message vocal joué chez les amis 
+Nécessite de connaitre l'IP des autres
+-- le message est paramétrable
+
+## Communication arduino
+
+- via GPIO
+- l'arduino fait de la détection de mouvements et envoie un signal à la raspi quand la personne est levée
+-> le réveil arrete de sonner

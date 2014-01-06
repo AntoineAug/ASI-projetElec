@@ -1,0 +1,28 @@
+# Projet de réveil intelligent
+
+## Fonctionnalités
+- Musique intelligente : choisie en fonction de l'heure
+- Lumière douce
+- Synthèse vocale : annonce l'heure, l'heure des cours, l'emploi du temps
+- Augmente progressivement la luminosité de l'écran
+- Detection de mouvement via Arduino et cmucam (provoque l'arrêt du réveil)
+- Une fois la personne réveillée, affichage des infos (notamment des horaires de tram)
+- Possible composante sociale (communication P2P avec d'autres Raspberry ?)
+
+## Matériel nécessaire
+
+- écran
+- clavier
+- encientes (mini-jack)
+- connexion internet 
+- souris
+- cable hdmi 
+ 
+- Arduino
+- CMU cam 4
+cables pour communivation par GPI
+
+
+## Tips
+- Éteindre l'écran :
+> $ sleep 1 && xset dpms force off

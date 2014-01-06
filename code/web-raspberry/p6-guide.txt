@@ -1,0 +1,54 @@
+# P6 - Guide d'utilisation
+# Conseils divers
+
+## Identifiants (par défaut)
+- Login : pi  
+- Mot de passe : raspberry
+
+## Utilitaire de configuration générale
+Grâce à cet utilitaire, on peut choisir la langue, la disposition du clavier, le fuseau horaire, activer l'accès SSH, ...  
+$ raspi-config
+
+## Configuer le proxy INSA pour le terminal  
+$ export http_proxy='http://cachemad.insa-rouen.fr:3128'  
+$ echo "Acquire::http::Proxy \"http://cachemad.insa-rouen.fr:3128\";" > /etc/apt/apt.conf
+
+## Mettre à jour les paquets  
+$ sudo apt-get update  
+$ sudo apt-get upgrade
+
+## Faire des captures d'écran
+Installer Scrot :  
+$ sudo apt-get install scrot
+Prendre un screenshot :  
+$ scrot /chemin/vers/le/fichier.png
+
+Pour créer un raccourci (touche impr. écran par exemple) :
+Éditer le fichier /home/pi/.config/openbox/lxde_rc.xml
+Puis pour prendre en compte les changements :  
+$ openbox --reconfigure
+
+## Forcer l'affichage HDMI au démarrage  
+$ sudo nano /boot/config.txt
+Décommenter la ligne "hdmi_force_hotplug".
+
+## Choisir la sortie audio
+Utiliser la sortie mini-jack :  
+$ sudo amixer cset numid=3 1
+Utiliser la sortie HDMI :  
+$ sudo amixer cset numid=3 2
+
+## Installer un serveur Apache  
+$ sudo apt-get install apache2 php5 php5-mysql
+Les services sont automatiquement créés et lancés au démarrage.
+
+## Monter une clé USB  
+$ sudo mount -a  
+Le contenu de la clé est alors accessible dans /media/[nom de la clé]  
+Pour démonter la clé :  
+$ sudo umount -a
+
+## Changer l'heure manuellement
+Normalement, une fois connectée à Internet, la Raspberry se met à l'heure grâce au protocole NTP. Seulement, le proxy de l'INSA bloque le port utilisé par NTP.  
+Pour régler l'heure via le terminal :  
+$ sudo date -s "Apr 9 14:28"

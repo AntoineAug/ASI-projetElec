@@ -1,0 +1,8 @@
+# REVEILS
+00 06 * * 1 /var/www/P6-raspy/sonnerie.sh
+20 15 * * 2 /var/www/P6-raspy/sonnerie.sh
+42 16 * * 3 /var/www/P6-raspy/sonnerie.sh
+00 10 * * 4 /var/www/P6-raspy/sonnerie.sh
+00 07 * * 5 /var/www/P6-raspy/sonnerie.sh
+00 07 * * 7 /var/www/P6-raspy/sonnerie.sh
+# /REVEILS
