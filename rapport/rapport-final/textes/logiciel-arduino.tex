@@ -2,7 +2,7 @@
 	Afin de développer le programme principal de la carte Arduino, nous avons utilisé le logiciel officiel Arduino IDE.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=350px]{images/electronique/arduinoIDE.png}
+		\includegraphics[width=350px]{images/arduinoIDE.png}
 		\caption{Logiciel utilisé : Arduino IDE}
 	\end{figure}
 
@@ -20,6 +20,6 @@
 
 	Ces instructions se répètent dans une boucle infinie. Afin d'éviter les pauses et que la carte Arduino soit toujours active, nous avons voulu ne pas utiliser la fonction "sleep". La carte Arduino fait donc tourner à son rythme la boucle, et les instructions sont déclenchées en fonction du temps écoulé. La variable tempsEntreChaqueExecution nous permet de réguler la vitesse de réponse de la carte Arduino. Cette astuce permet de rajouter très facilement des instructions pour un autre projet en rajoutant simplement une autre condition et une autre variable définissant un temps entre chaque exécution.\\
 
-	Toujours dans un soucis de garder le programme évolutif, nous n'avons pas inscrit en dur les informations concernant l'augmentation de voltage de la LED. Cette information est calculé à partir de deux variables, la première que nous venons d'évoquer est le tempsEntreChaqueExecution et la deuxième est le nombreToursAllumage. Grâce à ces deux variables nous pouvons calculer avec précision le temps d'allumage de la LED. Nous pouvons aussi règler la continuité de l'allumage (en diminuant le tempsEntreChaqueExecution et en augmentant le nombreToursAllumage) afin d'éviter de trop grand saut de voltage. Nous pouvons imaginer dans un nouveau projet une interface permettant à l'utilisateur de facilement règler les paramètres d'allumage de sa LED.
+	Toujours dans un souci de garder le programme évolutif, nous n'avons pas inscrit en dur les informations concernant l'augmentation de voltage de la LED. Cette information est calculée à partir de deux variables, la première que nous venons d'évoquer est le \textit{tempsEntreChaqueExecution} et la deuxième est le \textit{nombreToursAllumage}. Grâce à ces deux variables nous pouvons calculer avec précision le temps d'allumage de la LED. Nous pouvons aussi règler la continuité de l'allumage (en diminuant le \textit{tempsEntreChaqueExecution} et en augmentant le \textit{nombreToursAllumage}) afin d'éviter de trop grand saut de voltage. Nous pouvons imaginer dans un nouveau projet une interface permettant à l'utilisateur de facilement règler les paramètres d'allumage de sa LED.\\
 
 	Notre programme permet aussi de renseigner le voltage maximal si, par exemple, l'utilisateur ne veut pas que la LED s'allume complètement.
