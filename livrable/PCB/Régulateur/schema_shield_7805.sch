@@ -1,0 +1,108 @@
+EESchema Schematic File Version 2  date 09/11/2013 23:40:38
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:7805
+LIBS:Shield_Arduino
+LIBS:RASPBERRY_IO
+LIBS:shield_led-cache
+EELAYER 27 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date "9 nov 2013"
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L 7805 U1
+U 1 1 527EB4C8
+P 5900 3450
+F 0 "U1" H 6050 3254 60  0000 C CNN
+F 1 "7805" H 5900 3650 60  0000 C CNN
+F 2 "~" H 5900 3450 60  0000 C CNN
+F 3 "~" H 5900 3450 60  0000 C CNN
+	1    5900 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_2 P1
+U 1 1 527EB52E
+P 5450 4400
+F 0 "P1" V 5400 4400 40  0000 C CNN
+F 1 "CONN_2" V 5500 4400 40  0000 C CNN
+F 2 "" H 5450 4400 60  0000 C CNN
+F 3 "" H 5450 4400 60  0000 C CNN
+	1    5450 4400
+	0    -1   1    0   
+$EndComp
+$Comp
+L CONN_4 P2
+U 1 1 527EB6CC
+P 6500 4400
+F 0 "P2" V 6450 4400 50  0000 C CNN
+F 1 "CONN_4" V 6550 4400 50  0000 C CNN
+F 2 "" H 6500 4400 60  0000 C CNN
+F 3 "" H 6500 4400 60  0000 C CNN
+	1    6500 4400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5500 3400 5350 3400
+Wire Wire Line
+	5350 3400 5350 4050
+Wire Wire Line
+	6300 3400 6550 3400
+Wire Wire Line
+	6550 3400 6550 4050
+Wire Wire Line
+	6550 3800 6650 3800
+Wire Wire Line
+	6650 3800 6650 4050
+Connection ~ 6550 3800
+Wire Wire Line
+	5900 3700 5900 3800
+Wire Wire Line
+	5550 3800 6450 3800
+Wire Wire Line
+	5550 3800 5550 4050
+Wire Wire Line
+	6350 3800 6350 4050
+Connection ~ 5900 3800
+Wire Wire Line
+	6450 3800 6450 4050
+Connection ~ 6350 3800
+$EndSCHEMATC
